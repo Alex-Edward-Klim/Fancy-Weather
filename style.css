@@ -1,0 +1,233 @@
+* {
+  /*margin: 0;*/
+  box-sizing: border-box;
+
+  cursor: default;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: url('./assets/images/Background.jpg') center center / cover no-repeat fixed;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.wrapper {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  /*overflow: auto;*/
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+}
+
+.location-search {
+  justify-self: end;
+}
+
+.location-search__input-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.location-options {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: bottom 1s ease-in-out, max-height 1s ease-in-out;
+  z-index: 3;
+}
+
+.location-options__header, .location-options__single-option, .location-options__note {
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+  background: white;
+}
+
+.location-options__header, .location-options__note {
+  color: red;
+  font-weight: bold;
+}
+
+.location-options__single-option:hover {
+  background: grey;
+}
+
+
+.hidden {
+  visibility: hidden;
+}
+
+
+.header__section {
+  margin: 3vw;
+}
+
+.header__button {
+  outline: none;
+  background: linear-gradient(white, grey);
+  font-weight: bold;
+}
+
+.header__button:active {
+  background: linear-gradient(grey, white);
+}
+
+.pressed {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  animation-name: animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes animation {
+  from {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  }
+  to {
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 1);
+  }
+}
+
+
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.weather-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  align-content: space-between;
+}
+
+.weather-data__location {
+  /*display: inline-block;*/
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 1;
+}
+
+.weather-data__item, .location-data__latitude, .location-data__longitude, .weather-image {
+  margin: 1vw;
+  padding: 1vw;
+  border-radius: 10px;
+  border: 1px solid white;
+  background: /*rgba(0, 0, 0, 0.5)*/ /*rgba(255, 255, 255, 0.1)*/ rgba(0, 0, 0, 0.5);
+  font-size: 12pt;
+  font-weight: 900;
+  color: white;
+
+  overflow: hidden;
+}
+
+.weather-small-image,
+.next-day,
+.temperature-next-day,
+.next-second-day,
+.temperature-next-second-day,
+.next-third-day,
+.temperature-next-third-day {
+  display: block;
+  margin: auto;
+}
+.next-day,
+.temperature-next-day,
+.next-second-day,
+.temperature-next-second-day,
+.next-third-day,
+.temperature-next-third-day {
+  text-align: center;
+}
+
+.current-temperature-and-image {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  font-size: 5vw;
+  text-align: center;
+  align-self: center;
+}
+
+.current-weather {
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 1;
+}
+/*
+.weather-data__tomorrow {
+  grid-column: 1 / span 1;
+  grid-row: 5 / span 1;
+}
+*/
+
+
+/*
+.location-data {
+  padding: 1vw;
+}
+
+.location-data__coordinates {
+  display: inline-block;
+  margin: 0;
+}
+
+.latitude {
+  float: left;
+}
+
+.longitude {
+  float: right;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+*/
+
+/*
+https://stackoverflow.com/questions/15376558/how-to-fill-100-of-remaining-height
+*/
+
+.location-data {
+  padding: 1vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+
+.location-data__latitude {
+  /*display: inline-block;*/
+  margin: 0;
+  float: left;
+}
+
+.location-data__longitude {
+  /*display: inline-block;*/
+  margin: 0;
+  float: right;
+}
+
+#map {
+  width: 100%;
+  min-height: 100%;
+  /*display: grid;
+  grid-template-rows: 1fr;*/
+}
